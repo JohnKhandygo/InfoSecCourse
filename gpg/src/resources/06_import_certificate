@@ -1,0 +1,8 @@
+D:\apps\GPGPortable>gpg2.exe --import another-certificate.asc
+gpg: ключ EC70B1B8: импортирован открытый ключ 
+    "Intevation File Distribution Key <distribution-key@intevation.de>"
+gpg: Всего обработано: 1
+gpg:    импортировано: 1
+gpg: требуется 3 с ограниченным доверием, 1 с полным, модель доверия PGP
+gpg: глубина: 0 верных: 2 подписанных: 1 доверие: 0-,0q,0n,0m,0f,2u
+gpg: глубина: 1 верных: 1 подписанных: 0 доверие: 1-,0q,0n,0m,0f,0u

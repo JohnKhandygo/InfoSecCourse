@@ -1,0 +1,27 @@
+D:\apps\GPGPortable>gpg2.exe --local-user E068E86E --edit-key EC70B1B8
+gpg (GnuPG) 2.0.29; Copyright (C) 2015 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+
+pub  1024D/EC70B1B8 создан: 2010-03-19  годен до: 2020-03-16    применимость: SC
+    доверие: неизвестной   достоверность: неизвестной
+[неизвестно] (1). Intevation File Distribution Key <distribution-key@intevation.de>
+
+gpg> sign
+
+pub  1024D/EC70B1B8 создан: 2010-03-19  годен до: 2020-03-16    применимость: SC
+    доверие: неизвестной   достоверность: неизвестной
+ Отпечаток главного ключа: 61AC 3F5E E4BE 593C 13D6  8B1E 7CBD 620B EC70 B1B8
+
+     Intevation File Distribution Key <distribution-key@intevation.de>
+
+Срок действия данного ключа истекает 2020-03-16.
+Вы уверены, что хотите подписать этот ключ
+своим ключом "Test Name (demo certificate) <test@example.com>" (E068E86E)?
+
+Действительно подписать? (y/N) y
+
+Необходима фраза-пароль для доступа к закрытому ключу пользователя: 
+    "Test Name (demo certificate) <test@example.com>"
+2048-битный ключ RSA, ID E068E86E, создан 2016-02-28

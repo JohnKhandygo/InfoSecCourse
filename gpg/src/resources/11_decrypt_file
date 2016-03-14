@@ -1,0 +1,10 @@
+D:\apps\GPGPortable>gpg2.exe --local-user E068E86E --output pic.jpg --decrypt pic.jpg.gpg
+
+Необходима фраза-пароль для доступа к закрытому ключу пользователя: 
+    "Test Name (demo certificate) <test@example.com>"
+2048-битный ключ RSA, ID E068E86E, создан 2016-02-28
+
+gpg: зашифровано 2048-битным ключом RSA с ID E068E86E, созданным 2016-02-28
+      "Test Name (demo certificate) <test@example.com>"
+gpg: Подпись создана 02/28/16 15:00:23 Russia TZ 2 Standard Time ключом RSA с ID E068E86E
+gpg: Действительная подпись от "Sergey Klimov (Lab3) <ksa1993@yandex.ru>" [полное]

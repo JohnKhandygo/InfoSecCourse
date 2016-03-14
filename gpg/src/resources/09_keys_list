@@ -1,0 +1,17 @@
+D:\apps\GPGPortable>gpg2.exe --list-keys
+D:/apps/GPGPortable/home/pubring.gpg
+------------------------------------
+pub 2048R/1A8354B6 2016-02-28
+uid [абсолютное] Name Test (test certificate) <test@example.com>
+sub 2048R/7E07D464 2016-02-28
+
+pub 2048R/C75B147B 2016-02-25
+uid [  полное  ] Sergey Klimov (Lab3) <ksa1993@yandex.ru>
+sub 2048R/409CA923 2016-02-25
+
+pub 2048R/E068E86E 2016-02-28
+uid [абсолютное] Test Name (demo certificate) <test@example.com>
+sub 2048R/12174CA0 2016-02-28
+
+pub 1024D/EC70B1B8 2010-03-19 [    годен до: 2020-03-16]
+uid [  полное  ] Intevation File Distribution Key <distribution-key@intevation.de>

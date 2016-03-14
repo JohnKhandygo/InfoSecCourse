@@ -1,0 +1,5 @@
+D:\apps\GPGPortable>gpg2.exe --local-user E068E86E --detach-sign --armor --sign greeting.txt
+
+Необходима фраза-пароль для доступа к закрытому ключу пользователя: 
+    "Test Name (demo certificate) <test@example.com>"
+2048-битный ключ RSA, ID E068E86E, создан 2016-02-28
