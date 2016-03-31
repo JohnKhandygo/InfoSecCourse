@@ -1,0 +1,32 @@
+<nmaprun scanner="nmap"
+         args="nmap -n -sV -p6789 -oX h100p6789 10.0.0.100"
+         start="1459406137" startstr="Thu Mar 31 02:35:37 2016"
+         version="7.01" xmloutputversion="1.04">
+  <scaninfo type="syn" protocol="tcp" numservices="1" services="6789"/>
+  <verbose level="0"/>
+  <debugging level="0"/>
+  <host starttime="1459406138" endtime="1459406144">
+    <status state="up" reason="arp-response" reason_ttl="0"/>
+    <address addr="10.0.0.100" addrtype="ipv4"/>
+    <address addr="08:00:27:9A:4B:EE" addrtype="mac"
+             vendor="Oracle VirtualBox virtual NIC"/>
+    <hostnames>
+    </hostnames>
+    <ports>
+      <port protocol="tcp" portid="6789">
+        <state state="open" reason="syn-ack" reason_ttl="64"/>
+        <service name="my-tcp" product="my-tcp" version="1.0-SNAPSHOT"
+                 method="probed" conf="10"/>
+      </port>
+    </ports>
+    <times srtt="357" rttvar="3758" to="100000"/>
+  </host>
+  <runstats>
+    <finished time="1459406144" timestr="Thu Mar 31 02:35:44 2016"
+              elapsed="7.22"
+              summary="Nmap done at Thu Mar 31 02:35:44 2016; 
+                1 IP address (1 host up) scanned in 7.22 seconds"
+              exit="success"/>
+    <hosts up="1" down="0" total="1"/>
+  </runstats>
+</nmaprun>

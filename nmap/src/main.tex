@@ -1,0 +1,79 @@
+\documentclass[12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+\usepackage{mathtext}
+\usepackage{cmap}
+\usepackage{amsmath,amssymb,amsthm,amscd,amsfonts}
+\usepackage{graphicx}
+\usepackage[colorbox,usenames,dvipsnames]{xcolor}
+\usepackage{float, caption, subcaption, multirow}
+\usepackage[section]{minted}
+\usepackage{hyperref}
+
+\voffset -24.5mm
+\hoffset -5mm
+\textwidth 173mm
+\textheight 240mm
+\oddsidemargin=0mm \evensidemargin=0mm
+
+\definecolor{codegray}{gray}{0.9}
+\newcommand{\code}[1]{\colorbox{codegray}{\texttt{#1}}}
+\newmintinline[src]{console}{}
+
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor{black}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}
+\usemintedstyle[console]{bw}
+\setminted[console] {
+     bgcolor = codegray,
+     linenos = false,
+     tabsize = 2,
+     formatcom = \color{black},
+     frame = leftline,
+     framerule = 0.8pt,
+     framesep = 0.5cm,
+     xleftmargin = 1cm,
+     xbottommargin = 0.1cm
+     breaklines = true,
+     escapeinside=<>
+}
+\usemintedstyle[xml]{emacs}
+\setminted[xml] {
+     bgcolor = codegray,
+     linenos = true,
+     tabsize = 2,
+     formatcom = \color{black},
+     frame = leftline,
+     framerule = 0.8pt,
+     framesep = 0.5cm,
+     xleftmargin = 1cm,
+     xbottommargin = 0.1cm
+     breaklines = true,
+     escapeinside=||
+}
+
+\begin{document}
+
+\title{
+    Лабораторная работа №2 \\ 
+    Дисциплина <<Методы и средства защиты информации>> \\ 
+    Nmap}
+\author{Евгений Хандыго, гр. 53501/3}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\input{01_problem_definition}
+\input{02_hosts_discovery}
+\input{03_ports_discovery}
+\input{04_services_discovery}
+\input{05_nmap_output}
+\input{06_wshark_analysis}
+\input{07_db_nmap}
+\input{08_file_analysis}
+\input{09_conclusion}
+
+\end{document}

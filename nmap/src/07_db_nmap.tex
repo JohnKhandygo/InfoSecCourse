@@ -1,0 +1,38 @@
+\section{Использование db\_nmap}
+
+Утилита db\_nmap входит в состав фреймворка metasploit. Данный инструмент расширяет возможности Nmap тем, что позволяет сохранять 
+результаты сканирования в базу данных. Для того, чтобы начать работу с db\_nmap необходимо сначала запустить сервис базы данных. В 
+случае дистрибутива kali linux это будет PostgreSQL. Для запуска сервиса базы данных воспользуемся командой 
+\src{service postgresql start}. Для работы непосредственно с db\_nmap теперь необходимо открыть консольный интерфейс для metasploit. 
+Для удобной работы с базой данных заведем новый workspace, который будет хранить результаты для сканирования хоста по адресу 
+\src{10.0.0.100} как показано в листинге \ref{lst:workspace-a}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/14_workspace_a}
+    \caption{Создание нового workspace для работы с db\_nmap}
+    \label{lst:workspace-a}
+\end{listing}
+
+Синтаксис утилиты db\_nmap повторяет синтаксис вызова Nmap. Для демонстрации работы с db\_nmap проведем сканирование TCP портов хоста
+с адресом \src{10.0.0.100} как показано в листинге \ref{lst:db-scan-ports-sV}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/15_db_scan_ports_sV}
+    \caption{Пример использования утилиты db\_nmap}
+    \label{lst:db-scan-ports-sV}
+\end{listing}
+
+Теперь для проверки результатов работы db\_nmap воспользуемся командами \src{hosts} и \src{services} как показано в листингах 
+\ref{lst:db-hosts} и \ref{lst:db-services}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/16_db_scan_hosts}
+    \caption{Результаты сканирования db\_nmap}
+    \label{lst:db-hosts}
+\end{listing}
+
+\begin{listing}[H]
+    \inputminted{console}{resources/17_db_services}
+    \caption{Результаты сканирования db\_nmap}
+    \label{lst:db-services}
+\end{listing}

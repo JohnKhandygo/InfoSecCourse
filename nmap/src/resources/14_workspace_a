@@ -1,0 +1,5 @@
+msf > workspace -a host100
+[*] Added workspace: host100
+msf > workspace
+  default
+* host100

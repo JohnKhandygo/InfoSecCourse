@@ -1,0 +1,17 @@
+import java.io.*;
+import java.net.*;
+
+class TCPServer {
+  public static void main(final String[] args) 
+  throws Exception {
+    ServerSocket s = new ServerSocket(6789);
+    while (true) {
+      Socket c = s.accept();
+      InputStreamReader isr = new InputStreamReader(c.getInputStream());
+      BufferedReader in = new BufferedReader(isr);
+      DataOutputStream out = new DataOutputStream(c.getOutputStream());
+      in.readLine();
+      out.writeBytes("Hello, nice to meet you.");
+    }
+  }
+}

@@ -1,0 +1,17 @@
+\section{Формат вывода}
+
+При формировании отчета Nmap позволяет сохранить его в нескольких форматах, например, XML. Для того, чтобы воспользоваться этой 
+опцией необходимо добавить флаг \src{-oX filename} к строке вызова утилиты. Пример использования приведен ниже в листингах 
+\ref{lst:scan-port-oX} и \ref{lst:xml-report}
+
+\begin{listing}[H]
+    \inputminted{console}{resources/10_scan_port_oX}
+    \caption{Пример использования опции \src{-oX}}
+    \label{lst:scan-port-oX}
+\end{listing}
+
+\begin{listing}[H]
+    \inputminted{xml}{resources/11_xml_report}
+    \caption{Содержимое файла \src{h100p6789}}
+    \label{lst:xml-report}
+\end{listing}

@@ -1,0 +1,7 @@
+msf > hosts -c address,mac,os_name
+
+Hosts
+=====
+address     mac                os_name
+-------     ---                -------
+10.0.0.100  08:00:27:9a:4b:ee  Linux
