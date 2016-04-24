@@ -1,0 +1,15 @@
+msf auxiliary(vnc_login) > echo "password" | vncviewer 10.0.0.100 -autopass
+[*] exec: echo "password" | vncviewer 10.0.0.100 -autopass
+
+Connected to RFB server, using protocol version 3.3
+Performing standard VNC authentication
+Authentication successful
+Desktop name "root's X desktop (metasploitable:0)"
+VNC server default format:
+  32 bits per pixel.
+  Least significant byte first in each pixel.
+  True colour: max red 255 green 255 blue 255, shift red 16 green 8 blue 0
+Using default colormap which is TrueColor.  Pixel format:
+  32 bits per pixel.
+  Least significant byte first in each pixel.
+  True colour: max red 255 green 255 blue 255, shift red 16 green 8 blue 0

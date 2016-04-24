@@ -1,0 +1,22 @@
+msf auxiliary(vnc_login) > show options -c name,current setting
+
+Module options (auxiliary/scanner/vnc/vnc_login):
+   Name              Current Setting
+   ----              ---------------
+   BLANK_PASSWORDS   false          
+   BRUTEFORCE_SPEED  5              
+   DB_ALL_CREDS      false          
+   DB_ALL_PASS       false          
+   DB_ALL_USERS      false          
+   PASSWORD                         
+   PASS_FILE         /home/pswds    
+   Proxies                          
+   RHOSTS                           
+   RPORT             5900           
+   STOP_ON_SUCCESS   false          
+   THREADS           1              
+   USERNAME          BLANK        
+   USERPASS_FILE                    
+   USER_AS_PASS      false           
+   USER_FILE                        
+   VERBOSE           true           

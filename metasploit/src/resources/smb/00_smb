@@ -1,0 +1,28 @@
+msf > use auxiliary/scanner/smb/smb_enumshares 
+msf auxiliary(smb_enumshares) > show options
+
+Module options (auxiliary/scanner/smb/smb_enumshares):
+   Name             Current Setting
+   ----             ---------------
+   LogSpider        3           
+   RHOSTS                       
+   SMBDomain        .           
+   SMBPass                      
+   SMBUser                      
+   ShowFiles        false         
+   SpiderProfiles   true        
+   SpiderShares     false         
+   THREADS          1             
+   USE_SRVSVC_ONLY  false         
+
+msf auxiliary(smb_enumshares) > set RHOSTS 10.0.0.100
+RHOSTS => 10.0.0.100
+msf auxiliary(smb_enumshares) > run
+
+[+] 10.0.0.100:139 - print$ - (DISK) Printer Drivers
+[+] 10.0.0.100:139 - tmp - (DISK) oh noes!
+[+] 10.0.0.100:139 - opt - (DISK) 
+[+] 10.0.0.100:139 - IPC$ - (IPC) IPC Service (Samba 3.0.20-Debian)
+[+] 10.0.0.100:139 - ADMIN$ - (IPC) IPC Service (Samba 3.0.20-Debian)
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed

@@ -1,0 +1,60 @@
+\section{Получение доступа к консоли через VNC-сервера}
+
+Для получения доступа к VNC-серверу в общем случае необходимо получить пароль к нему. Конечно, прежде чем приступать к этому процессу,
+необходимо проверить конфигурацию VNC-сервера на предмет отсутствия схемы авторизации. Данный факт указал бы на то, что получить
+доступ к интерфейсу атакауемой машины можно без пароля. Для осущесвления этой проверки воспользуемся утилитой \code{vnc\_none\_auth} 
+как показано в листинге \ref{lst:vnc-check-no-auth}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/vnc/00_check_no_auth}
+    \caption{Проверка наличия схемы авторизации VNC-сервера}
+    \label{lst:vnc-check-no-auth}
+\end{listing}
+
+Как видно из приведенного вывода, VNC-сервер, к которому необходимо получить доступ, не предоставляет свободного доступа. Таким образом,
+необходимо каким-либо образом выяснить пароль к нему. Для этого в metasploit представлена утилита \code{vnc\_login}. По сути ее роль 
+сводится к перебору заранее известного списка паролей. Ниже, в листинге \ref{lst:vnc-login-options} представлены параметры утилиты 
+\code{vnc\_login}.
+\\ \hfill \\
+\inputminted[lastline=14]{console}{resources/vnc/01_login_options}
+\inputminted[firstline=15]{console}{resources/vnc/01_login_options}
+\captionof{listing}{Параметры утилиты \code{vnc\_login} \label{lst:vnc-login-options}}
+% \begin{listing}[H]
+%     \inputminted{console}{resources/vnc/01_login_options}
+%     \caption{Параметры утилиты \code{vnc\_login}}
+%     \label{lst:vnc-login-options}
+% \end{listing}
+
+Параметр с ключом \code{PASS\_FILE} указывает путь к файлу, содержащему возможные пароли для доступа к VNC-серверу на атакуемой машине.
+Данный файл был создан заранее как показано в листинге \ref{lst:pswds-list}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/vnc/02_pswds_list}
+    \caption{Создание списка возможных паролей к VNC-серверу}
+    \label{lst:pswds-list}
+\end{listing}
+
+Перед тем, как запускать данную утилиту, необходимо также указать адресс атакуемой машины (или диапазон адресов). Пример использования
+утилиты \code{vnc\_login} представлен в листинге \ref{lst:vnc-login-run}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/vnc/03_login_run}
+    \caption{Пример вывода утилиты \code{vnc\_login}}
+    \label{lst:vnc-login-run}
+\end{listing}
+
+Как видно из вывода, к VNC-серверу подошел один из паролей, представленных в файле \code{/home/pswds}. Используя его, теперь можно получить
+доступ к атакуемой машине как показано в листинге \ref{lst:vnc-connect}.
+
+\begin{listing}[H]
+    \inputminted{console}{resources/vnc/04_vnc_connect}
+    \caption{Инициализация соеденения с VNC-сервером по подобранному паролю}
+    \label{lst:vnc-connect}
+\end{listing}
+
+Для подтверждения получения доступа к консоли атакуемой машины можно воспользоваться следующим набором команд:
+
+\begin{listing}[H]
+    \inputminted{console}{resources/vnc/05_vnc_test}
+    \caption{Проверка присоединения к консоли атакуемой машины}
+\end{listing}

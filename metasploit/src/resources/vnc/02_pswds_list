@@ -1,0 +1,9 @@
+msf auxiliary(vnc_login) > echo "admin" > pswds
+msf auxiliary(vnc_login) > echo "1234" >> pswds
+msf auxiliary(vnc_login) > echo "qwerty123" >> pswds
+msf auxiliary(vnc_login) > echo "password" >> pswds
+msf auxiliary(vnc_login) > cat pswds
+admin
+1234
+qwerty123
+password

@@ -1,0 +1,18 @@
+msf > use auxiliary/scanner/vnc/vnc_none_auth
+msf auxiliary(vnc_none_auth) > show options
+
+Module options (auxiliary/scanner/vnc/vnc_none_auth):
+   Name     Current Setting  Required  Description
+   ----     ---------------  --------  -----------
+   RHOSTS                    yes       The target address
+   RPORT    5900             yes       The target port
+   THREADS  1                yes       The number of concurrent threads
+
+msf auxiliary(vnc_none_auth) > set RHOSTS 10.0.0.100
+RHOSTS => 10.0.0.100
+msf auxiliary(vnc_none_auth) > run
+
+[*] 10.0.0.100:5900 - VNC server protocol version: [3, 4].3
+[*] 10.0.0.100:5900 - VNC server security types supported: VNC
+[*] Scanned 1 of 1 hosts (100% complete)
+[*] Auxiliary module execution completed
