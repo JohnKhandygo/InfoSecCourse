@@ -1,0 +1,89 @@
+\section{Худший за последнее время}
+
+В разделе <<Худшие за последнее время>> был выбран домен tyranoff.ru. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{resources/02_summary.png}
+    \caption{Сводка по домену tyranoff.ru}
+    \label{fig:02-summary}
+\end{figure}
+
+Оценка домена была снижена до \code{F} поскольку обнаружена уязвимость к атаке OpenSSL Padding Oracle.
+
+Ниже приведена таблица рассшифровок шифров, доступных для использования на рассматриваемом домене. Колонки таблицы зашифрованы 
+согласно нотации, представленной в разделе \ref{ssct:best-practices.configuration}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c}
+        \textbf{P} & \textbf{KEA} & \textbf{AA} & \textbf{MEA} & \textbf{Мощность} & \textbf{HA} \\ 
+        \hline
+        TLS & ECDHE & RSA & AES\_128\_GCM & $128$ & SHA256 \\
+        TLS & ECDHE & RSA & AES\_128\_CBC & $128$ & SHA256 \\
+        TLS & ECDHE & RSA & AES\_128\_CBC & $128$ & SHA \\
+        TLS & ECDHE & RSA & AES\_256\_GCM & $256$ & SHA384 \\
+        TLS & ECDHE & RSA & AES\_256\_CBC & $256$ & SHA384 \\
+        TLS & ECDHE & RSA & AES\_256\_CBC & $256$ & SHA \\
+        TLS & DHE & RSA & AES\_256\_GCM & $256$ & SHA384 \\
+        TLS & DHE & RSA & AES\_256\_CBC & $256$ & SHA256 \\
+        TLS & DHE & RSA & AES\_256\_CBC & $256$ & SHA \\
+        TLS & DHE & RSA & AES\_128\_GCM & $128$ & SHA256 \\
+        TLS & DHE & RSA & AES\_128\_CBC & $128$ & SHA256 \\
+        TLS & DHE & RSA & AES\_128\_CBC & $128$ & SHA \\
+        TLS & RSA & RSA & AES\_256\_CBC & $128$ & SHA \\
+        TLS & RSA & RSA & AES\_128\_GCM & $128$ & SHA256 \\
+        TLS & RSA & RSA & AES\_128\_CBC & $128$ & SHA256 \\
+        TLS & DHE & RSA & 3DES\_EDE\_CBC & $112$ & SHA \\
+        TLS & RSA & RSA & 3DES\_EDE\_CBC & $112$ & SHA \\
+    \end{tabular}
+    \caption{Шифры, доступные на tyranoff.ru}
+    \label{tbl:02-cipher-suits}
+\end{table}
+
+Приведем теперь разбор некоторых деталий реализации протокола на рассматриваемом домене по категориям, рассмотренным в секции 
+\ref{ssct:best-practices.protocol-details}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c}
+        \hline
+        \multicolumn{2}{c}{\textbf{Уязвимости}} \\ \hline
+        \textbf{Уязвимость} & \textbf{Уязвим} \\ \hline
+        \textbf{DROWN} & Нет \\
+        \textbf{BEAST} & Да, со стороны сервера \\
+        \textbf{POODLE} & Нет \\
+        \textbf{Атака на понижение версии} & Нет \\
+        \textbf{Heartbleed} & Нет \\
+        \textbf{OpenSSL CCS} & Нет \\
+        \textbf{OpenSSL Padding Oracle} & Да \\ \hline
+        \multicolumn{2}{c}{\textbf{Опции}} \\ \hline
+        \textbf{Опция} & \textbf{Включена} \\ \hline 
+        \textbf{Безопасное переподключение} & Да \\ 
+        \textbf{Сжатие данных} & Нет \\ 
+        \textbf{Пульс} & Да \\ 
+        \textbf{Продожительная защищенность} & Да \\ 
+        \textbf{ALPN} & Да \\ 
+        \textbf{NPN} & Да (HTTP/1.1) \\ 
+        \textbf{Возобновление сессии (кэширование)} & Да \\
+        \textbf{Возобновление сессии (билеты)} & Да  \\
+        \textbf{OCSP сшивание} & Нет  \\
+        \textbf{HSTS} & Нет \\ 
+        \textbf{HPKP} & Нет \\ 
+        \textbf{Отказ в длинном рукопожатии} & Нет \\ 
+        \textbf{Отказ от версии} & Нет \\ 
+    \end{tabular}
+    \caption{Детали реализации протокола на tyranoff.ru}
+    \label{01-protocol-details}
+\end{table}
+
+Рассматриваемый домен использует тольк оверсии протокола TLS, однако уязвим к OpenSSL Padding Oracle (см. \ref{sssct:OpenSSLPO}).
+В остальном настройка домена выглядит достаточно неплохо, включая почти полную поддержку продолжительной защищенности. Некоторое 
+недоумение вызывают только одновременное использование таких опций, как ALPN/NPN и возобновление сессии через кэширование/билеты.
+Конфигурацию сервера можно улучшить следующим образом:
+\begin{itemize}
+    \item Отключить поддержку ALPN, если не предполагается использование HTTP/2.
+    \item Отключить кэширование сессий. 
+    \item Пропатчить версию OpenSSL, обновить сертификат.
+    \item Включить такие опции, как <<OSCP сшивание>> и HSTS. 
+\end{itemize}
